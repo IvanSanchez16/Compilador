@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class Lexico {
     private ArrayList<String> PalabrasReservadas;
     private String[] tiposDeTokens={"modifier","identifier","type","relational operator","aritmetical operator",
-                                    "boolean literal","integer literal","key",";","="};
+                                    "boolean literal","integer literal","open key",";","=","open parentheses","close key",
+                                    "close parentheses"};
 
     public Lexico(){
         PalabrasReservadas=new ArrayList<>();
@@ -66,12 +67,18 @@ public class Lexico {
     }
 
     public String tipoDeToken(String palabra){
+        if (palabra.equals("("))
+            return tiposDeTokens[10];
+        if (palabra.equals(")"))
+            return tiposDeTokens[12];
         if(palabra.equals("="))
             return tiposDeTokens[9];
         if(palabra.equals(";"))
             return tiposDeTokens[8];
-        if (palabra.equals("{") || palabra.equals("}"))
+        if (palabra.equals("{"))
             return tiposDeTokens[7];
+        if(palabra.equals("}"))
+            return tiposDeTokens[11];
         if(palabra.equals("+") || palabra.equals("-") || palabra.equals("*") || palabra.equals("/"))
             return tiposDeTokens[4];
         if(palabra.equals("public") || palabra.equals("private"))
