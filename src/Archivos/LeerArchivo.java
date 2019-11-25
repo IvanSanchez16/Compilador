@@ -25,7 +25,7 @@ public class LeerArchivo {
     public String leerSigLinea() throws IOException {
         String linea=br.readLine();
         if(linea==null)
-            throw new IOException();
+            return null;
         return linea;
     }
 }

@@ -1,1 +1,3 @@
-vamo viendo chavales
+public class Prueba {
+    private int num = 1 ;
+}

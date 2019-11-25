@@ -12,23 +12,30 @@ public class Main {
         LeerArchivo arch=new LeerArchivo("Prueba");
         analizadorLexico=new Lexico();
         tokens=new ArrayList<>();
-        String linea="",palabra;
+        String linea="",palabra,tipo;
+        boolean pres;
         while(linea!=null) {
             linea = arch.leerSigLinea();
-            while (linea.length() > 0) {
+            while (linea!=null && linea.length() > 0) {
                 int corte = linea.indexOf(" ");
                 if (corte == -1) {
                     palabra=linea;
                     linea = "";
+                }else {
+                    palabra = linea.substring(0, corte);
+                    if(palabra.equals("")) {
+                        linea = linea.substring(corte + 1);
+                        continue;
+                    }
+                    linea = linea.substring(corte + 1);
                 }
-                palabra=linea.substring(0, corte);
-                linea = linea.substring(corte + 1);
-                if(!analizadorLexico.comprobarPalabra(palabra)) {
-                    tokens.add(new Token(palabra, false));
-                }else{
-                    tokens.add(new Token(palabra,true));
-                }
+                pres=analizadorLexico.comprobarPalabra(palabra);
+                tipo=analizadorLexico.tipoDeToken(palabra);
+                tokens.add(new Token(palabra,pres,tipo));
             }
+        }
+        for (Token t:tokens) {
+            System.out.println("Token: "+t.getToken()+"\tReservada: "+t.isReservada()+"\tTipo: "+t.getTipo());
         }
     }
 }
