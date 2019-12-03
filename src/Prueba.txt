@@ -4,6 +4,7 @@ public class Prueba{
 
     if(num==1)
         band=true;
-     else
+    else
         band=false;
+
 }

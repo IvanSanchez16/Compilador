@@ -1,3 +1,5 @@
+package resources;
+
 public class Token {
 
     private boolean reservada;
@@ -22,5 +24,9 @@ public class Token {
 
     public String getTipo() {
         return tipo;
+    }
+
+    public String toString(){
+        return token+"\t"+reservada+"\t"+tipo;
     }
 }
