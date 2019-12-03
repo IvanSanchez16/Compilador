@@ -8,7 +8,13 @@ public class Sintactico {
 
     public Sintactico(ArrayList<String> tt){
         tiposTokens=tt;
+        analizar();
     }
 
-
+    //Comienza el analisis sintactico
+    private void analizar(){
+        for (String token : tiposTokens) {
+            
+        }
+    }
 }
