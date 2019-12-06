@@ -1,7 +1,8 @@
 package Analizadores;
 
 public class Gramatica {
-	
+
+	//Constantes para realizar analisis sintactico
 	private final String[] class_declaration = {"<modifier>", "class", "{", "field_declaration", "statement","}"};
 	private final String[] field_declaration = {"variable_declaration", ";"};
 	private final String[] variable_declaration = {"<modifier>","type","variable_declarator / identifier"};

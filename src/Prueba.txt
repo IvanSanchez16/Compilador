@@ -1,4 +1,4 @@
-public class Prueba{
+public clas&s Prueba{
     private int num=1;
     private boolean band;
 
