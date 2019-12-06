@@ -205,19 +205,23 @@ public class Lexico {
                 palabra="";
                 continue;
             }
-            if(
-                    (palabra.charAt(0)=='=' || palabra.charAt(0)=='>' || palabra.charAt(0)=='<')
-                            &&
-                            (palabra.charAt(1)=='=' || palabra.charAt(1)=='>' || palabra.charAt(1)=='<')
-            ){
-                String aux=palabra.substring(0,2);
-                AppCompilador.agregarToken(aux,false,tipoDeToken(aux));
-                if (palabra.length()!=2) {
-                    palabra=palabra.substring(2);
+            try {
+                if(
+                        (palabra.charAt(0)=='=' || palabra.charAt(0)=='>' || palabra.charAt(0)=='<')
+                                &&
+                                (palabra.charAt(1)=='=' || palabra.charAt(1)=='>' || palabra.charAt(1)=='<')
+                ){
+                    String aux=palabra.substring(0,2);
+                    AppCompilador.agregarToken(aux,false,tipoDeToken(aux));
+                    if (palabra.length()!=2) {
+                        palabra=palabra.substring(2);
+                        continue;
+                    }
+                    palabra="";
                     continue;
                 }
-                palabra="";
-                continue;
+            } catch (Exception e) {
+
             }
             if(palabra.charAt(0)=='='){
                 AppCompilador.agregarToken(palabra.charAt(0)+"",false,tipoDeToken(palabra.charAt(0)+""));

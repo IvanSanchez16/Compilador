@@ -1,9 +1,8 @@
 package Analizadores;
 
 public class Gramatica {
-
-	//Constantes para realizar analisis sintactico
-	private final String[] class_declaration = {"<modifier>", "class", "{", "field_declaration", "statement","}"};
+	
+	private final String[] class_declaration = {"<modifier>", "class", "identifier", "{", "field_declaration", "statement","}"};
 	private final String[] field_declaration = {"variable_declaration", ";"};
 	private final String[] variable_declaration = {"<modifier>","type","variable_declarator / identifier"};
 	private final String[] variable_declarator = {"identifier", "=", "integer_literal / boolean_literal"};
@@ -11,6 +10,7 @@ public class Gramatica {
 	private final String[] testing_expression = {"integer_literal / identifier","relational_operator","integer_literal / identifier"};
 	private final String statement  = "variable_declaration / if_statement / while_statement";
 	private final String[] while_statement =  {"while", "(", "expression", ")", "{", "statement", "}"};
+	private final String[] if_statement = {"if" , "(", "expression", ")", "{", "statement", "}"};
 	private final String type  = "type_specifier";
 	private final String type_specifier =   "boolean / int";
 	private final String modifier =   "public / private";

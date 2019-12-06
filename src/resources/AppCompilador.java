@@ -24,11 +24,13 @@ public class AppCompilador {
         while(linea!=null) {
             l++;
             linea = arch.leerSigLinea();
-            analizadorLexico.analizarLinea(linea,l,0);
+            analizadorLexico.analizarLinea(linea,l, 0);
         }
         //Para este punto el arrayList tokens esta
         //lleno de los tokens que componen el archivo
-
+//        for (Token token : tokens) {
+//            System.out.println(token);
+//        }
         //Solo falta mandarlos al analizador sintáctico para validar
         //El orden de los mismos
         analizadorSintactico=new Sintactico( obtenerTipos() );
